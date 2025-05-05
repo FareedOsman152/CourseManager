@@ -1,0 +1,22 @@
+﻿@model List<ResultsFullDetails>
+@{
+    ViewData["Title"] = "ShowCourseResults";
+}
+
+<h1>ShowCourseResults</h1>
+
+
+
+<table class="table table-hover table-bordered">
+    <tr>
+        <td>Trainee Name</td>
+        <td>Trainee Degree</td>
+    </tr>
+    @foreach (var r in Model)
+    {
+        <tr>
+            <td>@r.TraineeName</td>
+            <td style="color:@r.color">@r.TraineeDegree</td>
+        </tr>
+    }
+</table>

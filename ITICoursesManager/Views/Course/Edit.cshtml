@@ -1,0 +1,54 @@
+﻿@model CourseDeptInstru
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<form asp-action="SaveEditted" method="post">
+    @Html.AntiForgeryToken()
+    <input asp-for="Id" hidden value="@Model.Id" />
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form form-control" value="@Model.Name"/>
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Hours"></label>
+        <input asp-for="Hours" class="form form-control" value="@Model.Hours" />
+        <span asp-validation-for="Hours" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Degree"></label>
+        <input asp-for="Degree" class="form form-control" value="@Model.Degree" />
+        <span asp-validation-for="Degree" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="MinDegree"></label>
+        <input asp-for="MinDegree" class="form form-control" value="@Model.MinDegree" />
+        <span asp-validation-for="MinDegree" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label>Department</label>
+        <select name="DepartmentId" class="form-check" asp-for="DepartmentId">
+            @foreach (var d in Model.Departments)
+            {
+                <option value="@d.Id">@d.Name</option>
+            }
+        </select>
+        <span asp-validation-for="DepartmentId" class="text-danger"></span>
+    </div>
+
+    <input type="submit" name="Add" value="Add" class="btn btn-primary" />
+</form>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

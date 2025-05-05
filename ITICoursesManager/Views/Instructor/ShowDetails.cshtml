@@ -1,0 +1,19 @@
+﻿@model Instructor
+@{
+    ViewData["Title"] = "ShowDetails";
+}
+
+<h1>ShowDetails</h1>
+
+@if(Model is null)
+{
+    <h2 style="color:red">The Id Is Not Found</h2>
+}
+else
+{
+    <h3>@Model.Name</h3>
+    <h5>Id => @Model.Id</h5>
+    <h5>Address => @Model.Address</h5>
+    <h5>Salary => @Model.Salary</h5>
+    <img src="~/imgs/@Model.ImagURL" width="150px">
+}

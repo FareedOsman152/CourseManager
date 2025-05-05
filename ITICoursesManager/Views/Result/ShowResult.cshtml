@@ -1,0 +1,25 @@
+﻿@model ResultsFullDetails
+@{
+    ViewData["Title"] = "ShowResult";
+}
+
+<h1>ShowResult</h1>
+
+
+<table class="table table-hover table-bordered">
+    <tr>
+        <td>Trainee Name</td>
+        <td>Course Name</td>
+        <td>Course Degree</td>
+        <td>Course Min Degree</td>
+        <td>Trainee Degree</td>
+    </tr>
+        <tr>
+        <td>@Model.TraineeName</td>
+        <td>@Model.CourseName</td>
+        <td>@Model.CourseDegree</td>
+        <td>@Model.CourseMinDegree</td>
+        <td style="color:@Model.color">@Model.TraineeDegree</td></td>
+        </tr>
+    }
+</table>

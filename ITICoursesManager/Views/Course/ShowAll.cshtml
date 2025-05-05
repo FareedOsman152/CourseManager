@@ -1,0 +1,32 @@
+﻿@model List<Course>
+@{
+    ViewData["Title"] = "ShowAll";
+}
+
+<h1>ShowAll</h1>
+<div>
+    <a asp-controller="Course" asp-action="AddNew" class="btn btn-success"> Add New Course</a>
+</div>
+<table class="table table-hover table-bordered">
+    <tr>
+        <td>Name</td>
+        <td>Hours</td>
+        <td>Degree</td>
+        <td>MinDegree</td>
+        <td>Departmen tId</td>
+    </tr>
+    @foreach(var s in Model)
+    {
+        <tr>
+            <td>@s.Name</td>
+            <td>@s.Hours</td>
+            <td>@s.Degree</td>
+            <td>@s.MinDegree</td>
+            <td>@s.DepartmentId</td>
+            <td>
+                <a asp-controller="Course" asp-action="Edit" asp-route-id="@s.Id" class="btn btn-info">Edit</a>
+            </td>
+           
+        </tr>
+    }
+</table>

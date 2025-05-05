@@ -1,0 +1,75 @@
+﻿@model InstructorDeptsCrses
+@{
+    ViewData["Title"] = "AddNewInstructor";
+}
+
+<h1>AddNewInstructor</h1>
+
+<form method="post" action="/Instructor/SaveNew">
+    @Html.AntiForgeryToken()
+
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" value="@Model?.Name" class="form form-control"/>
+        <span asp-validation-for="Name"></span>
+    </div>
+
+    <div>
+        <label>Address</label>
+        <input name="Address" value="@Model?.Address" class="form form-control" />
+    </div>
+
+    <div>
+        <label>Salary</label>
+        <input name="Salary" value="@Model?.Salary" class="form form-control" />
+    </div>
+
+    <div>
+        <label>ImagURL</label>
+        <input name="ImagURL" value="@Model?.ImagURL" class="form form-control" />
+    </div>
+    <div>
+        <input type="file" name="ImagU" class="form form-control" />
+    </div>
+    
+    <div>
+        <lable>Dpartments</lable>
+        <select name="DepartmentId" class="form-check">
+            @foreach(var d in Model.Depts)
+            {
+                @if(d.Id==Model.Id)
+                {                    
+                    <option value="@d.Id" selected>@d.Name</option>
+                }
+                else
+                {
+                    <option value="@d.Id">@d.Name</option>
+                }
+            }
+        </select>
+    </div>
+
+    <div>
+        <lable>Courses</lable>
+        <select name="CourseId" class="form-check">
+            @foreach (var d in Model.Crses)
+            {
+                @if (d.Id == Model.Id)
+                {
+                    <option value="@d.Id" selected>@d.Name</option>
+                }
+                else
+                {
+                    <option value="@d.Id">@d.Name</option>
+                }
+            }
+        </select>
+    </div>
+
+    <div>
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+
+</form>
+
+<a href="/Instructor/ShowAll" class="btn btn-info">Back To List</a>

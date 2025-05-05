@@ -1,0 +1,14 @@
+﻿@model string
+@{
+    ViewData["Title"] = "Search";
+}
+
+<h1>Search</h1>
+
+<form action="/instructor/SearchResult" method="post">
+    <div>
+        <lable>Name</lable>
+        <input name="name"value="@Model"/>
+    </div>
+    <input type="submit"value="Search" class="btn btn-primary"/>
+</form>

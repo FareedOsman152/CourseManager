@@ -1,0 +1,73 @@
+﻿@model InstructorDeptsCrses
+@{
+    ViewData["Title"] = "EditInstructor";
+}
+
+<h1>EditInstructor</h1>
+
+
+
+<form method="post" action="/Instructor/SaveEdit">
+    <input name="Id" hidden value="@Model.Id"/>
+    <div>
+        <label>Name</label>
+        <input name="Name" value="@Model?.Name" class="form form-control" />
+    </div>
+
+    <div>
+        <label>Address</label>
+        <input name="Address" value="@Model?.Address" class="form form-control" />
+    </div>
+
+    <div>
+        <label>Salary</label>
+        <input name="Salary" value="@Model?.Salary" class="form form-control" />
+    </div>
+
+    <div>
+        <label>ImagURL</label>
+        <input name="ImagURL" value="@Model?.ImagURL" class="form form-control" />
+    </div>
+
+    <div>
+        <lable>Dpartments</lable>
+        <select name="DepartmentId" class="form-check">
+            @foreach (var d in Model.Depts)
+            {
+                @if (d.Id == Model.DepartmentId)
+                {
+                    <option value="@d.Id" selected>@d.Name</option>
+                }
+                else
+                {
+                    <option value="@d.Id">@d.Name</option>
+                }
+            }
+        </select>
+    </div>
+
+    <div>
+        <lable>Courses</lable>
+        <select name="CourseId" class="form-check">
+            @foreach (var d in Model.Crses)
+            {
+                @if (d.Id == Model.CourseId)
+                {
+                    <option value="@d.Id" selected>@d.Name</option>
+                }
+                else
+                {
+                    <option value="@d.Id">@d.Name</option>
+                }
+            }
+        </select>
+    </div>
+
+
+    <div>
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </div>
+
+</form>
+
+<a href="/Instructor/ShowAll" class="btn btn-info">Back To List</a>
